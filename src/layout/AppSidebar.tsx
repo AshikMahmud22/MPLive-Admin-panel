@@ -64,12 +64,7 @@ const navItems: NavItem[] = [
       },
     ],
   },
-  {
-    icon: <ShieldCheck size={20} />,
-    name: "Admin Management",
-    path: "/admin-management",
-    allowedRoles: [ROLES.MOTHER, ROLES.SUPER_ADMIN],
-  },
+
   {
     name: "Content Store",
     icon: <ShoppingBag size={22} />,
@@ -188,6 +183,12 @@ const navItems: NavItem[] = [
     allowedRoles: [ROLES.MOTHER],
   },
   {
+    icon: <ShieldCheck size={20} />,
+    name: "Admin Management",
+    path: "/admin-management",
+    allowedRoles: [ROLES.MOTHER, ROLES.SUPER_ADMIN],
+  },
+  {
     name: "System Settings",
     icon: <Settings size={22} />,
     allowedRoles: [ROLES.MOTHER],
@@ -221,7 +222,8 @@ const navItems: NavItem[] = [
 ];
 
 const AppSidebar: React.FC = () => {
-  const { isExpanded, isMobileOpen, setMobileOpen, isHovered, setIsHovered } = useSidebar();
+  const { isExpanded, isMobileOpen, setMobileOpen, isHovered, setIsHovered } =
+    useSidebar();
   const { role, loading } = useAuth();
   const location = useLocation();
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
@@ -257,8 +259,8 @@ const AppSidebar: React.FC = () => {
   return (
     <>
       {isMobileOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-[45] lg:hidden" 
+        <div
+          className="fixed inset-0 bg-black/50 z-[45] lg:hidden"
           onClick={() => setMobileOpen(false)}
         />
       )}
@@ -274,7 +276,9 @@ const AppSidebar: React.FC = () => {
             <LuSquareDashedKanban size={24} />
           </div>
           {(isExpanded || isHovered || isMobileOpen) && (
-            <span className="font-bold text-xl dark:text-white">AdminPanel</span>
+            <span className="font-bold text-xl dark:text-white">
+              AdminPanel
+            </span>
           )}
         </div>
 
